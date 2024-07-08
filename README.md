@@ -1,6 +1,7 @@
-# Lazy vim config
+# Personal Lazy vim config
 
-<!-- Open nvim: -->
+## Inside NVim:
+
 - `:Lazy install`
 - `:Lazy update`
 - `:Lazy sync`

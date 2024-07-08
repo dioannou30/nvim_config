@@ -1,0 +1,6 @@
+*
+!.gitignore
+!nvim/
+!nvim/**
+!update.sh
+!README.md

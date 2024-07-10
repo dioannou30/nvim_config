@@ -1,8 +1,12 @@
 return {
-    "JoosepAlviste/palenightfall.nvim",
-    config = function()
-        require('palenightfall').setup {}
-    end
+  "JoosepAlviste/palenightfall.nvim",
+  config = function()
+    require("palenightfall").setup({
+      transparent = false,
+      color_overrides = {},
+      highlight_overrides = {},
+    })
+  end,
 }
 -- return {
 --     "catppuccin/nvim",

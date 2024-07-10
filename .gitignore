@@ -3,4 +3,6 @@
 !nvim/
 !nvim/**
 !update.sh
-!README.md
+!README.m
+!docs
+!docs/**

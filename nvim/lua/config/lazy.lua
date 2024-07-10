@@ -19,7 +19,8 @@ require("lazy").setup({
     {
       "LazyVim/LazyVim",
       import = "lazyvim.plugins",
-    }, -- import/override with your plugins
+    },
+    -- import/override with your plugins
     { "DaikyXendo/nvim-material-icon" },
     {
       import = "plugins",

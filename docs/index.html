@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Basic Vim Motions and Commands for VS Code Users</title>
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans",
+          Helvetica, Arial, sans-serif;
+        line-height: 1.5;
+        color: #24292e;
+        background-color: #24292e;
+        margin: 0;
+        padding: 20px;
+      }
+      .container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        max-width: 1920px;
+        margin: 0 auto;
+      }
+      .column {
+        border: 1px solid #e1e4e8;
+        flex: 1;
+        min-width: 300px;
+        background-color: #24292e;
+        color: #fff;
+        border-radius: 6px;
+        padding: 15px;
+      }
+      h1 {
+        color: #fff;
+        border-bottom: 1px solid #e1e4e8;
+        padding-bottom: 10px;
+        width: fit-content;
+      }
+      h2 {
+        color: #4493f8;
+        border-bottom: 1px solid #e1e4e8;
+        width: fit-content;
+      }
+      h3 {
+        color: #fff;
+      }
+      ul {
+        padding-left: 20px;
+      }
+      li {
+        margin-bottom: 5px;
+      }
+      code {
+        background-color: #8d96a0;
+        border-radius: 3px;
+        padding: 2px 4px;
+        font-family: ui-monoleader, SFMono-Regular, "SF Mono", Menlo, Consolas,
+          "Liberation Mono", monoleader;
+        color: #24292e;
+      }
+      .highlight {
+        color: #2dba4e;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Basic Vim Motions and Commands for VS Code Users</h1>
+    <div class="container">
+      <div class="column">
+        <h2>Navigation</h2>
+        <h3>Movement</h3>
+        <ul>
+          <li><code>h</code>: Move left</li>
+          <li><code>l</code>: Move right</li>
+          <li><code>j</code>: Move down</li>
+          <li><code>k</code>: Move up</li>
+        </ul>
+        <h3>Horizontal Movement</h3>
+        <ul>
+          <li><code>w</code>: Move to the beginning of the next word</li>
+          <li><code>b</code>: Move to the beginning of the previous word</li>
+          <li><code>e</code>: Move to the end of the current/next word</li>
+          <li><code>0</code>: Move to the beginning of the line</li>
+          <li><code>$</code>: Move to the end of the line</li>
+          <li>
+            <code>f{char}</code>: Move to the next occurrence of {char} on the
+            current line
+          </li>
+          <li>
+            <code>F{char}</code>: Move to the previous occurrence of {char} on
+            the current line
+          </li>
+        </ul>
+        <h3>Vertical Movement</h3>
+        <ul>
+          <li><code>gg</code>: Move to the first line of the document</li>
+          <li><code>G</code>: Move to the last line of the document</li>
+          <li><code>{number}G</code>: Move to line {number}</li>
+          <li><code>Ctrl+u</code>: Move up half a screen</li>
+          <li><code>Ctrl+d</code>: Move down half a screen</li>
+        </ul>
+        <h3>Undo and Redo</h3>
+        <ul>
+          <li><code>u</code>: Undo</li>
+          <li><code>Ctrl+r</code>: Redo</li>
+        </ul>
+      </div>
+      <div class="column">
+        <h2>Editing</h2>
+        <h3>Deleting</h3>
+        <ul>
+          <li><code>x</code>: Delete character under cursor</li>
+          <li><code>dw</code>: Delete word</li>
+          <li><code>dd</code>: Delete entire line</li>
+          <li>
+            <code>d$</code> or <code>D</code>: Delete from cursor to end of line
+          </li>
+          <li><code>di(</code>: Delete everything inside parentheses</li>
+          <li><code>di"</code>: Delete everything inside double quotes</li>
+          <li><code>di'</code>: Delete everything inside single quotes</li>
+          <li>
+            <code>dib</code>: Delete everything inside parentheses (alternative)
+          </li>
+          <li><code>diB</code>: Delete everything inside curly braces</li>
+        </ul>
+        <h3>Changing (Delete and enter Insert mode)</h3>
+        <ul>
+          <li><code>cw</code>: Change word</li>
+          <li><code>cc</code>: Change entire line</li>
+          <li><code>ci(</code>: Change everything inside parentheses</li>
+          <li><code>ci"</code>: Change everything inside double quotes</li>
+        </ul>
+        <h3>Yanking (Copying)</h3>
+        <ul>
+          <li><code>yw</code>: Yank word</li>
+          <li><code>yy</code>: Yank entire line</li>
+          <li><code>yi(</code>: Yank everything inside parentheses</li>
+          <li><code>yi"</code>: Yank everything inside double quotes</li>
+        </ul>
+        <h3>Pasting</h3>
+        <ul>
+          <li><code>p</code>: Paste after cursor</li>
+          <li><code>P</code>: Paste before cursor</li>
+        </ul>
+      </div>
+      <div class="column">
+        <h2>Useful Combinations</h2>
+        <ul>
+          <li><code>ciw</code>: Change inside word</li>
+          <li><code>diw</code>: Delete inside word</li>
+          <li><code>yiw</code>: Yank inside word</li>
+          <li><code>ct{char}</code>: Change until {char}</li>
+          <li><code>dt{char}</code>: Delete until {char}</li>
+        </ul>
+
+        <h2>Searching and Highlighting</h2>
+        <h3>Search for Word Under Cursor</h3>
+        <ul>
+          <li><code>*</code>: Search forward for the word under the cursor</li>
+          <li><code>#</code>: Search backward for the word under the cursor</li>
+        </ul>
+        <h3>Search in Current File</h3>
+        <ul>
+          <li>
+            <code>/</code>: Start forward search (type your search term and
+            press Enter)
+          </li>
+          <li><code>?</code>: Start backward search</li>
+        </ul>
+        <h3>Navigate through search results</h3>
+        <ul>
+          <li><code>n</code>: Go to next occurrence</li>
+          <li><code>N</code>: Go to previous occurrence</li>
+        </ul>
+      </div>
+      <div class="column">
+        <h2>Code Actions and Navigation</h2>
+        <h3>Code Actions</h3>
+        <ul>
+          <li><code>&lt;leader&gt;ca</code>: Open code action menu</li>
+        </ul>
+        <h3>Indentation</h3>
+        <ul>
+          <li><code>&gt;&gt;</code>: Indent current line</li>
+          <li><code>&lt;&lt;</code>: Unindent current line</li>
+          <li><code>==</code>: Auto-indent current line</li>
+        </ul>
+        <h3>Go To Definition and Implementation</h3>
+        <ul>
+          <li><code>gd</code>: Go to definition</li>
+          <li><code>gi</code>: Go to implementation</li>
+          <li><code>gr</code>: Go to references</li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
